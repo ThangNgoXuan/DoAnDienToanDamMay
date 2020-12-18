@@ -37,7 +37,7 @@ public class StudentController {
     {
         Student student=new Student(MSSV,SClass,Name, PointAvg, TotalCredits, Ranking,Major);
         studentRepository.Update(student);
-        return "Added new student to repo!";
+        return "Update student to repo!";
     }
     @GetMapping("/find/{id}")
     public Student findStudentByID(@PathVariable String id){
