@@ -1,13 +1,14 @@
 package com.qlsv.Application.controller;
 
 import com.qlsv.Application.Repository.StudentRepository;
+import com.qlsv.Application.Repository.StudentRepositoryDAO;
 import com.qlsv.Application.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class StudentController {
-    private StudentRepository studentRepository;
+    private StudentRepository studentRepository=new StudentRepositoryDAO();
     @GetMapping("/list")
     public Iterable<Student> getStudetns(){
         return studentRepository.getStudents();

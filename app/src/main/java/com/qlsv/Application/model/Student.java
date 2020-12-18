@@ -1,7 +1,13 @@
 package com.qlsv.Application.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Student {
+    @Id
     private String ID;
+
     private String SClass;
     private String Name;
     private float PointAvg;
@@ -9,6 +15,14 @@ public class Student {
     private String Ranking;
     private String Major;
 
+    private String Description;
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
     public String getID(){
         return ID;
     }
