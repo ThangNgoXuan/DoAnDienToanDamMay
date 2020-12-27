@@ -1,17 +1,21 @@
 package com.qlsv.Application.controller;
 
 import com.qlsv.Application.Repository.StudentRepository;
-import com.qlsv.Application.Repository.StudentRepositoryDAO;
 import com.qlsv.Application.model.Student;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StudentController {
-    private StudentRepository studentRepository=new StudentRepositoryDAO();
+    private StudentRepository repository;
+    public StudentController(StudentRepository repository){
+        this.repository=repository;
+    }
     @GetMapping("/list")
-    public Iterable<Student> getStudetns(){
-        return studentRepository.getStudents();
+    public List<Student> getStudetns(){
+        return repository.findAll();
     }
     @PostMapping("/add")
     public String addStudent(@RequestParam String MSSV,
@@ -23,7 +27,7 @@ public class StudentController {
                              @RequestParam String Major)
     {
         Student student=new Student(MSSV,SClass,Name, PointAvg, TotalCredits, Ranking,Major);
-        studentRepository.Save(student);
+        repository.save(student);
         return "Added new student to repo!";
     }
     @PostMapping("/update")
@@ -36,15 +40,22 @@ public class StudentController {
                              @RequestParam String Major)
     {
         Student student=new Student(MSSV,SClass,Name, PointAvg, TotalCredits, Ranking,Major);
-        studentRepository.Update(student);
+        repository.save(student);
         return "Update student to repo!";
     }
     @GetMapping("/find/{id}")
     public Student findStudentByID(@PathVariable String id){
-        return studentRepository.getStudent(id);
+        List<Student> students=repository.findAll();
+        for (Student st: students
+             ) {
+            if(st.getID().equals(id)){
+                return st;
+            }
+        }
+        return null;
     }
     @GetMapping("/error")
     public String Test(){
-        return "Hello";
+        return "error";
     }
 }
