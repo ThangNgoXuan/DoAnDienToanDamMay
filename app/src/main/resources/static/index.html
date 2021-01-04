@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="dataTable">
                             <thead class="">
                             <th>
                                 MSSV
@@ -48,93 +48,6 @@
                             </th>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    18110333
-                                </td>
-                                <td>
-                                    181101A
-                                </td>
-                                <td>
-                                    Nguyễn Văn A
-                                </td>
-                                <td>
-                                    7.5
-                                </td>
-                                <td>
-                                    60
-                                </td>
-                                <td>
-                                    Khá
-                                </td>
-                                <td>
-                                    Hệ thống thông tin
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary pull-right">Xóa</button>
-                                    <button type="submit" class="btn btn-primary pull-right" data-toggle="modal"
-                                            data-target=".bs-example-modal-lg">Chi tiết/Sửa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    18110333
-                                </td>
-                                <td>
-                                    181101A
-                                </td>
-                                <td>
-                                    Nguyễn Văn A
-                                </td>
-                                <td>
-                                    7.5
-                                </td>
-                                <td>
-                                    60
-                                </td>
-                                <td>
-                                    Khá
-                                </td>
-                                <td>
-                                    Hệ thống thông tin
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary pull-right">Xóa</button>
-                                    <button type="submit" class="btn btn-primary pull-right" data-toggle="modal"
-                                            data-target=".bs-example-modal-lg">Chi tiết/Sửa
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    18110333
-                                </td>
-                                <td>
-                                    181101A
-                                </td>
-                                <td>
-                                    Nguyễn Văn A
-                                </td>
-                                <td>
-                                    7.5
-                                </td>
-                                <td>
-                                    60
-                                </td>
-                                <td>
-                                    Khá
-                                </td>
-                                <td>
-                                    Hệ thống thông tin
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary pull-right">Xóa</button>
-                                    <button type="submit" class="btn btn-primary pull-right" data-toggle="modal"
-                                            data-target=".bs-example-modal-lg">Chi tiết/Sửa
-                                    </button>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -214,9 +127,9 @@
                                                 <button type="button" class="btn btn-primary pull-right">Hủy</button>
                                             </div>
                                         </div>
+                                    </form>
                                 </div>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -228,7 +141,43 @@
 </div>
 </div>
 </div>
+<script>
+    window.onload =function (){
+        var table=document.getElementById("dataTable");
+        var xml=new XMLHttpRequest();
 
+        xml.onreadystatechange=function (){
+            if (this.readyState == 4 && this.status == 200) {
+                var students=JSON.parse(this.responseText);
+
+                for (var i=0; i<students.length;i++) {
+                    var row=table.insertRow(table.rows.length);
+                    var cell1=row.insertCell(0);
+                    var cell2=row.insertCell(1);
+                    var cell3=row.insertCell(2);
+                    var cell4=row.insertCell(3);
+                    var cell5=row.insertCell(4);
+                    var cell6=row.insertCell(5);
+                    var cell7=row.insertCell(6);
+                    var cell8=row.insertCell(7);
+                    cell1.innerText=students[i].id;
+                    cell2.innerText=students[i].sclass;
+                    cell3.innerText=students[i].name;
+                    cell4.innerText=students[i].pointAvg;
+                    cell5.innerText=students[i].totalCredits;
+                    cell6.innerText=students[i].ranking;
+                    cell7.innerText=students[i].major;
+                    cell8.innerHTML='<button class="btn btn-primary pull-right">Xóa</button>\n' +
+                        '                                    <button type="submit" class="btn btn-primary pull-right" data-toggle="modal"\n' +
+                        '                                            data-target=".bs-example-modal-lg">Chi tiết/Sửa\n' +
+                        '                                    </button>';
+                }
+            }
+        }
+        xml.open("GET",window.location.href+"/list",true);
+        xml.send();
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
