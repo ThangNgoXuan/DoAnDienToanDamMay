@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  myapp-mysql:
+  db:
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=password
@@ -12,15 +12,15 @@ services:
     ports:
       - 33061:3306
 
-  myapp-main:
+  web:
     image: qlsv-mysql
     restart: on-failure
     depends_on:
-      - qlsv-mysql
+      - db
     ports:
       - 8086:8086
     environment:
-      - DATABASE_HOST=qlsv-mysql
+      - DATABASE_HOST= db
       - DATABASE_USER=sa
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=qlsv
