@@ -1,0 +1,84 @@
+<div class="container" style="margin-top: 30px;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-plain">
+        <div class="card-header card-header-primary" style="text-align: center;">
+          <h4 class="card-title mt-0" style="font-weight: 900; font-size: 30px;"> Quản lí sinh viên K18</h4>
+          <p class="card-category">  </p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+              <h4 class="card-title">Nhập thông tin sinh viên</h4>
+          </div>
+          <div class="card-body">
+              <form (ngSubmit)="onSubmit()">
+                  <div class="row">
+                      <div class="col-md-3">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">MSSV</label>
+                              <input type="text" class="form-control" id="maSV" required [(ngModel)]="sinhvien.MSSV" name="maSV">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">Họ và tên</label>
+                              <input type="text" class="form-control" id="tenSV" required [(ngModel)]="sinhvien.Name" name="tenSV">
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">Lớp</label>
+                              <input type="text" class="form-control" id="tenSV" required [(ngModel)]="sinhvien.SClass" name="tenSV">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">Điểm trung bình</label>
+                              <input type="text" class="form-control" id="lop" required [(ngModel)]="sinhvien.PointAvg" name="lop">
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">Số tín chỉ</label>
+                              <input type="text" class="form-control" id="lop" required [(ngModel)]="sinhvien.TotalCredit" name="lop">
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">Xếp loại</label>
+                              <input type="text" class="form-control" id="lop" required [(ngModel)]="sinhvien.Ranking" name="lop">
+                          </div>
+                      </div>
+
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label class="bmd-label-floating">Thông tin chi tiết</label>
+                          </div>
+                          <textarea rows="10">
+                            <input type="text" class="form-control" id="lop" required [(ngModel)]="sinhvien.ten_Lop" name="lop">
+                          </textarea>
+                          <hr>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col-1">
+                      <button type="submit" class="btn btn-primary pull-right">Lưu</button>
+                    </div>
+                    <div class="col-2"> <a href="./index.html" routerLink="/listsinhviens" routerLinkActive="active"><button type="button" class="btn btn-primary pull-right">Hủy</button></a></div>
+                  </div>
+              </form>
+          </div>
+      </div>
+      </div>
+    </div>
+</div>
