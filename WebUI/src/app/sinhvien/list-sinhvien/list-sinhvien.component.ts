@@ -26,8 +26,8 @@ export class ListSinhvienComponent implements OnInit {
   }
 
 
-  deleteSinhVien(maSV: number) {
-    this.sinhvienService.deleteSinhVien(maSV)
+  deleteSinhVien(MSSV: number) {
+    this.sinhvienService.deleteSinhVien(MSSV)
       .subscribe(
         data => {
           console.log(data);

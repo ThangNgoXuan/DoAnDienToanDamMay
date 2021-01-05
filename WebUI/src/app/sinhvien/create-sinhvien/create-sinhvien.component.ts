@@ -16,6 +16,7 @@ export class CreateSinhvienComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sinhvienService.getSinhVien();
   }
  
   onSubmit(){
