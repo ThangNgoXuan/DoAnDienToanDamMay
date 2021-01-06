@@ -13,7 +13,7 @@ services:
       - 33061:3306
 
   web:
-    image: qlsv-mysql
+    image: 'dmhieu/qlsv-spring-api:latest'
     restart: on-failure
     depends_on:
       - db
