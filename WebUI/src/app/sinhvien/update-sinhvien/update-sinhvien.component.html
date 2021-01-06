@@ -63,8 +63,9 @@
                           <div class="form-group">
                               <label class="bmd-label-floating">Thông tin chi tiết</label>
                           </div>
-                          <textarea rows="10" required [(ngModel)]="sinhvien.description" >
-                          </textarea>
+                       <!--   <textarea rows="10" required [(ngModel)]="sinhvien.description" >
+                          </textarea>-->
+                        <input type="text" class="form-control" id="description" required [(ngModel)]="sinhvien.description" name="description">
                           <hr>
                       </div>
                   </div>

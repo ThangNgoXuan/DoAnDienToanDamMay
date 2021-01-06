@@ -2,7 +2,6 @@ package com.qlsv.Application.controller;
 
 import com.qlsv.Application.Repository.StudentRepository;
 import com.qlsv.Application.model.Student;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class StudentController {
     private StudentRepository repository;
     public StudentController(StudentRepository repository){
@@ -29,9 +28,9 @@ public class StudentController {
     }
 
     @PutMapping("/update/{id}")
-    public String UpdateStudent(@PathVariable(value = "MSSV") String MSSV,@Valid @RequestBody Student student )
+    public String UpdateStudent(@PathVariable(value = "id") String id,@Valid @RequestBody Student student )
     {
-        Student student1=findStudentByID(MSSV);
+        Student student1=findStudentByID(id);
         if(student1==null){
             return "faild";
         }
@@ -58,9 +57,12 @@ public class StudentController {
     }
 
     @DeleteMapping("/Delete/{id}")
-    public void DeleteStudent(@PathVariable String id){
+    public String DeleteStudent(@PathVariable String id){
         Student deleteStudent=findStudentByID(id);
-        if(deleteStudent!=null)
+        if(deleteStudent==null){
+            return "Khong ton tai";
+        }
         repository.delete(deleteStudent);
+        return "Deleted!";
     }
 }
