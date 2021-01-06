@@ -25,3 +25,7 @@ services:
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=qlsv
       - DATABASE_PORT=33061
+  ui:
+    image: 'dmhieu/qlsv-frontend-angular:latest'
+    ports:
+      - 4200:80
