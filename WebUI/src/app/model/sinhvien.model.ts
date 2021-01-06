@@ -1,9 +1,10 @@
 export class SinhVien{
-    MSSV !: number;
-    Major !: String;
-    Name !: String;
-    SClass !: Date;
-    PointAvg !: Float32Array;
-    TotalCredit !: Int16Array;
-    Ranking !:String;
+    id !: String;
+    name !: String;
+    sclass !: Date;
+    pointAvg !: Float32Array;
+    totalCredit !: Int16Array;
+    ranking !: String;
+    major !: String;
+    description !: String;
 }

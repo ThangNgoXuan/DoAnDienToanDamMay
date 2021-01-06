@@ -26,8 +26,8 @@ export class ListSinhvienComponent implements OnInit {
   }
 
 
-  deleteSinhVien(MSSV: number) {
-    this.sinhvienService.deleteSinhVien(MSSV)
+  deleteSinhVien(id: String) {
+    this.sinhvienService.deleteSinhVien(id)
       .subscribe(
         data => {
           console.log(data);
@@ -35,9 +35,9 @@ export class ListSinhvienComponent implements OnInit {
         },
       error => console.log(error));
   }
-   updateSinhVien(MSSV:number)
+   updateSinhVien(id:String)
    {
-    this.router.navigate(['/listsinhviens', MSSV])
+    this.router.navigate(['/listsinhviens', id])
    }
 
 }

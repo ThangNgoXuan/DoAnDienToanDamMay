@@ -10,7 +10,7 @@
             <div class="table-responsive">
                 <table class="table table-hover">
                   <thead class="">
-                    <th>MSSV</th>
+                    <th>ID</th>
                     <th>Tên </th>
                     <th>Lớp</th>
                     <th>Điểm TB</th>
@@ -19,16 +19,16 @@
                   </thead>
                     <tbody>
                       <tr *ngFor="let sinhvien of listsinhviens | async">
-                        <td>{{sinhvien.MSSV}}</td>
-                        <td>{{sinhvien.Name}}</td>
-                        <td>{{sinhvien.SClass}}</td>
-                        <td>{{sinhvien.PointAvg}}</td>
-                        <td>{{sinhvien.TotalCredit}}</td>
-                        <td>{{sinhvien.Ranking}}</td>
-                        <td style="visibility:hidden">{{sinhvien.Major}}</td>
+                        <td>{{sinhvien.id}}</td>
+                        <td>{{sinhvien.name}}</td>
+                        <td>{{sinhvien.sclass}}</td>
+                        <td>{{sinhvien.pointAvg}}</td>
+                        <td>{{sinhvien.totalCredit}}</td>
+                        <td>{{sinhvien.ranking}}</td>
+                        <td style="visibility:hidden">{{sinhvien.description}}</td>
                         <td>
-                            <button class="btn btn-primary pull-right" (click)="deleteSinhVien(sinhvien.MSSV)">Xóa</button>
-                            <button class="btn btn-primary pull-right" (click)="updateSinhVien(sinhvien.MSSV)">Chi tiết/Sửa</button>
+                            <button class="btn btn-primary pull-right" (click)="deleteSinhVien(sinhvien.id)">Xóa</button>
+                            <button class="btn btn-primary pull-right" (click)="updateSinhVien(sinhvien.id)">Chi tiết/Sửa</button>
                         </td>
                     </tr>
                     </tbody>

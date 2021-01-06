@@ -11,7 +11,7 @@ import { SinhVienService } from 'src/app/service/sinhvien.service';
 })
 export class UpdateSinhvienComponent implements OnInit {
 
-  MSSV !: number;
+  id !: String;
   sinhvien !: SinhVien;
 
   constructor(private route: ActivatedRoute,private router: Router,
@@ -19,15 +19,15 @@ export class UpdateSinhvienComponent implements OnInit {
 
   ngOnInit(): void {
     this.sinhvien= new SinhVien();
-    this.MSSV= this.route.snapshot.params['MSSV'];
-    this.sinhvienService.getSinhVienBymaSV(this.MSSV).subscribe(data => {
+    this.id= this.route.snapshot.params['id'];
+    this.sinhvienService.getSinhVienBymaSV(this.id).subscribe(data => {
       console.log(data)
       this.sinhvien = data;
     }, error => console.log(error));
   }
 
   onSubmit() {
-    this.sinhvienService.updateSinhVien(this.MSSV, this.sinhvien)
+    this.sinhvienService.updateSinhVien(this.id, this.sinhvien)
       .subscribe(data => console.log(data), error => console.log(error));
     this.sinhvien = new SinhVien();
     this.router.navigate(['/listsinhviens']);
