@@ -17,8 +17,8 @@ public class Student {
     private int TotalCredits;
     private String Ranking;
     private String Major;
-
     private String Description;
+
     public String getDescription() {
         return Description;
     }
