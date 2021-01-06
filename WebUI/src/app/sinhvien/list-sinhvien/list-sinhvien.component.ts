@@ -37,7 +37,7 @@ export class ListSinhvienComponent implements OnInit {
   }
    updateSinhVien(id:String)
    {
-    this.router.navigate(['/listsinhviens', id])
+    this.router.navigate(['/updatesinhvien',id])
    }
 
 }

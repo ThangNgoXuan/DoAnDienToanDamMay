@@ -13,7 +13,7 @@ services:
       - 33061:3306
 
   web:
-    image: qlsv-mysql
+    image: 'dmhieu/qlsv-spring-api:latest'
     restart: on-failure
     depends_on:
       - db
@@ -25,7 +25,3 @@ services:
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=qlsv
       - DATABASE_PORT=33061
-  ui:
-    image: 'thangngoit20/webui:v1'
-    ports:
-    - 4200:80

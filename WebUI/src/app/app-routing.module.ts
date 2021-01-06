@@ -8,7 +8,7 @@ const routes: Routes = [
   {path:'', redirectTo:'sinhvien', pathMatch:'full'},
   {path: 'createsinhvien', component: CreateSinhvienComponent},
   {path:'listsinhviens', component:ListSinhvienComponent},
-  {path:'updatesinhvien/:ID', component:UpdateSinhvienComponent}
+  {path:'updatesinhvien/:id', component:UpdateSinhvienComponent}
 ];
 
 @NgModule({

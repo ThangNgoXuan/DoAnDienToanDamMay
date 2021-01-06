@@ -3,7 +3,7 @@ export class SinhVien{
     name !: String;
     sclass !: Date;
     pointAvg !: Float32Array;
-    totalCredit !: Int16Array;
+    totalCredits !: Int16Array;
     ranking !: String;
     major !: String;
     description !: String;

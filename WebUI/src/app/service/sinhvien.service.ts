@@ -17,19 +17,19 @@ export class SinhVienService {
     return this.http.get<SinhVien[]>(this.baseUrl+"/list");
   }
 
-  getSinhVienBymaSV(ID: String): Observable<any> {
-    return this.http.get(this.baseUrl+"/find/" + ID);
+  getSinhVienBymaSV(ID: String): Observable<SinhVien> {
+    return this.http.get<SinhVien>(this.baseUrl+"/find/" + ID);
   }
 
   createSinhVien(sinhvien: SinhVien): Observable<object> {
-    return this.http.post<object>(this.baseUrl+"/add", sinhvien.id );
+    return this.http.post<object>(this.baseUrl+"/add", sinhvien);
   }
 
   updateSinhVien(ID: String, sinhvien: SinhVien): Observable<object> {
-    return this.http.put<object>(this.baseUrl + "/update", sinhvien);
+    return this.http.put<object>(this.baseUrl + "/update/"+ID, sinhvien);
   }
 
-  deleteSinhVien(ID: String): Observable<any> {
-    return this.http.delete<any>(this.baseUrl+"/delete/" + ID);
+  deleteSinhVien(ID: String): Observable<object> {
+    return this.http.delete<object>(this.baseUrl+"/Delete/" + ID);
   }
 }
