@@ -25,3 +25,7 @@ services:
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=qlsv
       - DATABASE_PORT=33061
+  ui:
+    image: 'thangngoit20/webui:v1'
+    ports:
+      - 4200:80
