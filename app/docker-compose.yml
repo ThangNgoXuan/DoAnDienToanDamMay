@@ -20,7 +20,7 @@ services:
     ports:
       - 8086:8086
     environment:
-      - DATABASE_HOST= db
+      - DATABASE_HOST=db
       - DATABASE_USER=sa
       - DATABASE_PASSWORD=password
       - DATABASE_NAME=qlsv
