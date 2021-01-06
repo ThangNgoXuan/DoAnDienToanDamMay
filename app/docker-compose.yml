@@ -26,6 +26,6 @@ services:
       - DATABASE_NAME=qlsv
       - DATABASE_PORT=33061
   ui:
-    image: 'thangngoit20/webui:v1'
+    image: webui
     ports:
       - 4200:80
